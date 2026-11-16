@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- ===== HEAD: page settings (not visible on the page): browser tab title, fonts and style files ===== -->
 <head>
-	<title>Yogiraj's website</title>
 	<meta charset="utf-8">
+	<!-- Text shown on the browser tab -->
+	<title>Yogiraj Zala | Turning Data into Stories</title>
+	<!-- Short summary shown by Google and in link previews -->
+	<meta name="description" content="Portfolio of Yogiraj Zala, a Toronto-based data storyteller who turns data into clear insights through dashboards, analytics and machine learning.">
+	<!-- Makes the site scale properly on phones -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Google font "Poppins" used for all text on the site -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+	<!-- Style files (CSS) for icons, animations, sliders and popups -->
 	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 	<link rel="stylesheet" href="css/animate.css">
 
@@ -21,88 +28,162 @@
 
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- style.css = the main design file (colors, sizes, layout) -->
 	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Extra styles for this page (skills cards, photo slider) -->
+	<style>
+
+		/* Skills section: grouped cards with skill tags */
+		.skill-group {
+			width: 100%; margin-bottom: 30px; padding: 22px 24px;
+			background: #fff; border-radius: 6px; border-top: 3px solid #3e64ff;
+			box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+		}
+		.skill-group h3 { font-size: 18px; font-weight: 600; color: #3e64ff; margin-bottom: 14px; }
+		.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+		.skill-tags span {
+			display: inline-block; padding: 5px 14px; border-radius: 20px;
+			background: #eef1ff; color: #333; font-size: 14px; font-weight: 500;
+		}
+
+		/* Venture section: Analytical Agent */
+		.venture-section { background: #f7f8ff; }
+		.venture-tagline { font-size: 20px; font-weight: 500; color: #3e64ff; }
+			width: 100%; margin-bottom: 30px; padding: 28px 24px; text-align: center;
+			background: #fff; border-radius: 6px; border-top: 3px solid #3e64ff;
+			box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); transition: transform 0.2s;
+		}
+
+		/* About section photo slider */
+		.ftco-about .photo-slider { position: relative; width: 100%; min-height: 520px; overflow: hidden; }
+		.ftco-about .photo-slider .photo-slide {
+			position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+			background-size: cover; background-position: center top; background-repeat: no-repeat;
+			opacity: 0; transition: opacity 0.6s ease;
+		}
+		.ftco-about .photo-slider .photo-slide.active { opacity: 1; }
+		.photo-arrow {
+			position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+			width: 44px; height: 44px; border: 0; border-radius: 50%;
+			background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 30px; line-height: 40px;
+			cursor: pointer; transition: background 0.2s;
+		}
+		.photo-arrow:hover, .photo-arrow:focus { background: #3e64ff; outline: none; }
+		.photo-prev { left: 12px; }
+		.photo-next { right: 12px; }
+		.photo-dots { position: absolute; bottom: 16px; left: 0; right: 0; z-index: 2; text-align: center; }
+		.photo-dots button {
+			width: 12px; height: 12px; margin: 0 5px; padding: 0; border: 2px solid #fff; border-radius: 50%;
+			background: transparent; cursor: pointer;
+		}
+		.photo-dots button.active { background: #fff; }
+	</style>
 </head>
 
+<!-- ===== BODY: everything visible on the page starts here ===== -->
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
+	<!-- ===== NAVIGATION BAR: menu at the top. Each link jumps to the section with that id (e.g. #about-section) ===== -->
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
+			<!-- Logo / site name in the top-left corner -->
 			<a class="navbar-brand" href="index.html"><span>Y</span>ogiraj</a>
+			<!-- "Menu" button, only shown on phones and small screens -->
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
+				<!-- Menu links -->
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
 					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-					<!-- <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li> -->
-					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
 					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
+					<li class="nav-item"><a href="#venture-section" class="nav-link"><span>Venture</span></a></li>
 					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<section class="hero-wrap js-fullheight">
+
+	<!-- ===== HERO / HOME SECTION: full-screen welcome banner with your name and rotating titles ===== -->
+	<section class="hero-wrap js-fullheight" id="home-section">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
 				<div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
 					<div class="text text-center">
+						<!-- Greeting and your name -->
 						<span class="subheading">Hey! I am</span>
 						<h1>Yogiraj Zala</h1>
+						<!-- Rotating job titles. data-period = pause on each title in milliseconds (1500 = 1.5 s). data-rotate = list of titles. Typing speed is set in js/main.js -->
 						<h2>I'm a
 							<span class="txt-rotate" data-period="1500"
-								data-rotate='[ "Storyteller with Data.", "Data Insight Engineer.", "Machine Learning Practitioner." ]'></span>
+								data-rotate='[ "Storyteller with Data.", "Data Insight Engineer." ]'></span>
 						</h2>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- Animated "scroll down" mouse icon at the bottom of the banner (scrolls to the Resume section) -->
+		<div class="mouse">
+			<a href="#resume-section" class="mouse-icon" aria-label="Scroll down">
+				<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+			</a>
 		</div>
-		<!-- <div class="mouse">
-				<a href="#" class="mouse-icon">
-					<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
-				</a>
-			</div> -->
 	</section>
 
+	<!-- ===== ABOUT SECTION: your photo, short bio, personal details and resume button ===== -->
 	<section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
 		<div class="container">
 			<div class="row d-flex no-gutters">
+				<!-- Left side: photo slider (images/my-photo-1.jpeg and images/my-photo-2.jpeg).
+				     Visitors switch photos with the arrows or the dots. To add a photo, copy one "photo-slide" line and one dot button. -->
 				<div class="col-md-6 col-lg-6 d-flex">
-					<div class="img-about img d-flex align-items-stretch">
-						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center"
-							style="background-image:url(images/my\ pic.png);">
+					<div class="img-about photo-slider" id="photo-slider">
+						<div class="photo-slide active" role="img" aria-label="Photo of Yogiraj Zala"
+							style="background-image: url('images/my-photo-3.jpeg');"></div>
+						<div class="photo-slide" role="img" aria-label="Another photo of Yogiraj Zala"
+							style="background-image: url('images/my-photo-1.jpeg');"></div>
+						<div class="photo-slide" role="img" aria-label="Another photo of Yogiraj Zala"
+							style="background-image: url('images/my-photo-2.jpeg');"></div>
+
+						<button type="button" class="photo-arrow photo-prev" aria-label="Previous photo">&#8249;</button>
+						<button type="button" class="photo-arrow photo-next" aria-label="Next photo">&#8250;</button>
+
+						<div class="photo-dots">
+							<button type="button" class="active" aria-label="Show photo 1"></button>
+							<button type="button" aria-label="Show photo 2"></button>
+							<button type="button" aria-label="Show photo 3"></button>
 						</div>
 					</div>
 				</div>
+				<!-- Right side: About text -->
 				<div class="col-md-6 col-lg-6 pl-md-5 py-5">
 					<div class="row justify-content-start pb-3">
 						<div class="col-md-12 heading-section ftco-animate">
 							<h1 class="big">About</h1>
 							<h2 class="mb-4">About Me</h2>
-							<p>4+ years experienced and self-motivated data analyst who has excellent organizational skills, is highly efficient and has a good eye for detail. A quick learner who can absorb new ideas and can communicate clearly and effectively. Now looking for a suitable data analyst/data scientist position.
+							<!-- Your bio paragraph -->
+							<p>With 8+ years of experience, I turn data into clear stories that help teams make better decisions. I build dashboards people actually use, dig for the insight behind the numbers, and explain it in plain language.
 							</p>
+							<!-- Personal details list -->
 							<ul class="about-info mt-4 px-md-0 px-2">
 								<li class="d-flex"><span>Name:</span> <span>Yogirajsinh Zala</span></li>
 								<li class="d-flex"><span>Address:</span> <span>Toronto, Canada</span></li>
-								<!-- <li class="d-flex"><span>Zip code:</span> <span>1000</span></li> -->
 								<li class="d-flex"><span>Email:</span> <span>zalayogiraj121196@gmail.com</span></li>
-								<li class="d-flex"><span>Phone: </span> <span>+1 (226)-507-4765 </span></li>
+								<li class="d-flex"><span>Phone:</span> <span>+1 (226) 507-4765</span></li>
 							</ul>
 						</div>
 					</div>
+					<!-- "Download Resume" button (opens your resume on Google Drive in a new tab) -->
 					<div class="counter-wrap ftco-animate d-flex mt-md-3">
 						<div class="text">
-							
-							<p><a target='blank'
+							<p><a target="_blank" rel="noopener"
 									href="https://drive.google.com/file/d/1xO8fP4LC_p1eL78lw2kH2MGGUH6-e50o/view?usp=sharing"
 									class="btn btn-primary py-3 px-3">Download Resume</a></p>
 						</div>
@@ -112,85 +193,78 @@
 		</div>
 	</section>
 
-	<!-- <section class="ftco-section ftco-partner">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-1.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-2.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-3.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-4.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-5.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    		</div>
-    	</div>
-    </section> -->
-
+	<!-- ===== RESUME SECTION: Education, Experience and Skills ===== -->
 	<section class="ftco-section ftco-no-pb goto-here" id="resume-section">
 		<div class="container">
 			<div class="row">
+				<!-- Left side: small sub-menu that jumps to Experience / Skills / Education -->
 				<div class="col-md-3">
-					<nav id="navi">
+					<nav class="navi">
 						<ul>
 							<li><a href="#page-2">Experience</a></li>
 							<li><a href="#page-3">Skills</a></li>
 							<li><a href="#page-1">Education</a></li>
-							
 						</ul>
 					</nav>
 				</div>
+				<!-- Right side: resume content -->
 				<div class="col-md-9">
-					<div id="page-1" class="page one">
-						<h2 class="heading">Education</h2>
+					<!-- ----- Experience: each "resume-wrap" block is one job, newest first ----- -->
+					<div id="page-2" class="page two">
+						<h2 class="heading">Experience</h2>
+
+						<!-- Job: Senior Analyst, Credit and Collections at Enercare (current role) -->
 						<div class="resume-wrap d-flex ftco-animate">
 							<div class="icon d-flex align-items-center justify-content-center">
 								<span class="flaticon-ideas"></span>
 							</div>
 							<div class="text pl-3">
-								<span class="date">Jan 2022 - Aug 2022</span>
-								<h2>Data Analytics for Bussiness Decision Making</h2>
-								<span class="position">Durham College </span>
-								
+								<span class="date">Feb 2024 - Present</span>
+								<h2>Senior Analyst, Credit and Collections</h2>
+								<span class="position">Enercare Inc. · Markham, ON</span>
+								<p>- Forecast delinquency, defaults and charge-offs for securitization reporting
+									<br>- Built collections KPIs and leadership portfolio reports
+									<br>- Benchmarked agencies, lifting promise-to-pay and liquidation rates
+									<br>- Refined credit policy with F1-score analysis, cutting delinquency
+									<br>- Automated dialer and agency files, saving hours weekly
+									<br>- Built automated data quality checks across environments
+									<br>- Recovered long-overdue balances through a targeted drop-card campaign
+									<br>- Redesigned agency recovery methodology, reducing commission fees
+								</p>
 							</div>
-						
-						
-						<!-- <div class="resume-wrap d-flex ftco-animate">
-	    					<div class="icon d-flex align-items-center justify-content-center">
-					    		<span class="flaticon-ideas"></span>
-					    	</div>
-					    	<div class="text pl-3">
-		    					<span class="date">2014-2015</span>
-		    					<h2>Art &amp; Creative Director</h2>
-		    					<span class="position">Cambridge University</span>
-		    					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		    				</div>
-	    				</div> -->
-					</div>
+						</div>
 
-					<div id="page-2" class="page two">
-						<h2 class="heading">Experience</h2>
+						<!-- Job: Data Analyst at Metergy Solutions -->
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">Nov 2022 - Jan 2024</span>
+								<h2>Data Analyst</h2>
+								<span class="position">Metergy Solutions Inc. · Markham, ON</span>
+								<p>- Led legacy database migration to Oracle Customer Cloud
+									<br>- Mapped and reconciled data using SQL and Power Query
+								</p>
+							</div>
+						</div>
+
+						<!-- Job: Power BI Developer at Franklin Electric -->
 						<div class="resume-wrap d-flex ftco-animate">
 							<div class="icon d-flex align-items-center justify-content-center">
 								<span class="flaticon-ideas"></span>
 							</div>
 							<div class="text pl-3">
 								<span class="date">May 2021 - Dec 2021</span>
-								<h2>Power BI Developer </h2>
-								<span class="position">Franklin Electric</span>
-								<p>- Designing complex data intensive reports/ dashboards
-									<br>- Developing SSIS packages to Extract, Transform and Load (ETL) data
+								<h2>Power BI Developer</h2>
+								<span class="position">Franklin Electric · Fort Wayne, IN (Remote)</span>
+								<p>- Built Power BI dashboards detecting early demand shifts
+									<br>- Delivered insights that supported measurable sales growth
 								</p>
 							</div>
 						</div>
 
+						<!-- Job: Energy Analyst at Evaluate Energy -->
 						<div class="resume-wrap d-flex ftco-animate">
 							<div class="icon d-flex align-items-center justify-content-center">
 								<span class="flaticon-ideas"></span>
@@ -198,529 +272,173 @@
 							<div class="text pl-3">
 								<span class="date">Nov 2018 - Apr 2021</span>
 								<h2>Energy Analyst</h2>
-								<span class="position">Evaluate Energy</span>
-								<p>
-									- Organizing company data and budget reports into detailed pivot tables
-									<br>- Developing and advising data-driven solutions
+								<span class="position">Evaluate Energy · Gandhinagar, India</span>
+								<p>- Built client dashboards and reports in Excel and Power BI
+									<br>- Maintained Oil &amp; Gas M&amp;A and operational reports
+									<br>- Forecast reserves life and recovery rates with machine learning
 								</p>
 							</div>
 						</div>
-
-						
-					
-						
-
 					</div>
+
+					<!-- ----- Skills: each "skill-group" card is one category; each <span> inside is one skill tag ----- -->
 					<div id="page-3" class="page three">
 						<h2 class="heading">Skills</h2>
 						<div class="row">
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Power BI</h3>
+							<div class="col-md-6 d-flex">
+								<div class="skill-group ftco-animate">
+									<h3>Data &amp; BI</h3>
+									<div class="skill-tags">
+										<span>Power BI</span><span>Tableau</span><span>Advanced Excel</span><span>SQL</span>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Python (Pandas, Matplotlib, Sklearn)</h3>
+							<div class="col-md-6 d-flex">
+								<div class="skill-group ftco-animate">
+									<h3>Programming</h3>
+									<div class="skill-tags">
+										<span>Python (Pandas, Scikit-learn)</span><span>R</span><span>VBA</span>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Web Scraping (Selenium, BeautifulSoup) </h3>
+							<div class="col-md-6 d-flex">
+								<div class="skill-group ftco-animate">
+									<h3>AI &amp; Analytics</h3>
+									<div class="skill-tags">
+										<span>Machine Learning</span><span>Predictive Modelling</span><span>NLP</span><span>Generative AI</span>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Natural Language Processing (NLP)</h3>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Machine Learning </h3>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- SQL, Database Management Systems</h3>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- Advance Excel</h3>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box">
-								<div class="progress-wrap ftco-animate">
-									<h3>- VBA (Macro)</h3>
+							<div class="col-md-6 d-flex">
+								<div class="skill-group ftco-animate">
+									<h3>Automation &amp; Tools</h3>
+									<div class="skill-tags">
+										<span>Power Automate</span><span>Azure DevOps</span><span>Jira</span><span>SharePoint</span><span>Zuora</span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
+
+					<!-- ----- Education ----- -->
+					<div id="page-1" class="page one">
+						<h2 class="heading">Education</h2>
+						<!-- Education entry: Durham College -->
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">Jan 2022 - Oct 2022</span>
+								<h2>Data Analytics in Business Decision Making</h2>
+								<span class="position">Durham College · Oshawa, ON</span>
+							</div>
+						</div>
+
+						<!-- Education entry: Pandit Deendayal Petroleum University -->
+						<div class="resume-wrap d-flex ftco-animate">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="flaticon-ideas"></span>
+							</div>
+							<div class="text pl-3">
+								<span class="date">Jun 2014 - Jul 2018</span>
+								<h2>B.Tech, Petroleum Engineering</h2>
+								<span class="position">Pandit Deendayal Petroleum University · Gandhinagar, India</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- services section -->
-	<!-- <section class="ftco-section" id="services-section">
-    	<div class="container-fluid px-md-5">
-    		<div class="row justify-content-center py-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">Services</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-          </div>
-        </div>
-    		<div class="row">
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Web Design</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Phtography</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-ideas"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Web Developer</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-innovation"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">App Developing</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-ux-design"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Branding</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1 shadow">
-							<span class="icon">
-								<i class="flaticon-idea"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Product Strategy</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-							</div>
-						</a>
-					</div>
-				</div>
-    	</div>
-    </section> -->
-	<!-- new project section -->
-	<!-- ******************************************************* -->
-	<section class="ftco-section ftco-project" id="projects-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Projects</h1>
-					<h2 class="mb-4">My Projects</h2>
-					<p>Click on the image and see source code each of project</p>
-				</div>
-
-				<div class="col-md-3">
-					<nav id="navi">
-						<ul>
-							<li><a href="#page-5">Power BI</a></li>
-							<li><a href="#page-6">Machine Learning</a></li>
-							<li><a href="#page-7">NLP</a></li>
-							<li><a href="#page-8">Web Scraping</a></li>
-							<li><a href="#page-9">Miscellaneous</a></li>
-						</ul>
-					</nav>
-				</div>
-
-				<div class="col-md-9">
-					
-
-					<div id="page-5" class="page five">
-						<h2 class="heading">Power BI</h2>
-						<!-- add here new project -->
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/PowerBI1.png); 
-						 float: left; width:210px;  height: 210px; margin: 5px;border: medium gray; ">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/Power-BI-Projects">Power BI Report</a></h3>
-								<span>Data Visualization</span>
-							</div>
-						</div>
-
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-							style="background-image: url(images/PowerBI2.png);
-						  display: inline-block; width:210px;   height: 210px; margin: 5px;border: medium gray; background-size: 210px;">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a href="https://github.com/yogirajzala12/Power-BI-Projects">Power BI Report</a></h3>
-								<span>Data Visualization</span>
-							</div>
-						</div>
-
-
-					</div>
-
-					<div id="page-6" class="page six">
-						<h2 class="heading">Machine Learning</h2>
-
-
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Kmeans.png); 
-						float: left; width:210px;  height: 210px; margin: 5px;border: medium gray; background-size: 210px; ">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/K-Means-Clustering">Customer Spending Analysis
-										</a></h3>
-								<span>K-Means Clustering</span>
-							</div>
-						</div>
-						
-
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/projects/titanic.jpg);
-						 display: inline-block; width:210px;   height: 210px; margin: 5px;border: medium  gray;">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/Titanic">EDA of Titanic Passengers
-										</a></h3>
-								<span>Machine Learning Algorithms</span>
-							</div>
-						</div>
-
-					</div>
-					<div id="page-7" class="page seven">
-						<h2 class="heading">NLP</h2>
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Chatbot.png); 
-						float: left; width:210px;  height: 210px; margin: 5px;border: medium gray; ">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/Simple-Chatbot">Chat Bot</a></h3>
-								<span>NLTK</span>
-							</div>
-						</div>
-
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/twitter.jpg);
-						 display: inline-block; width:210px;   height: 210px; margin: 5px;border: medium  gray;">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/Simple-Chatbot">Twitter Sentimental Analysis</a></h3>
-								<span>tweepy API</span>
-							</div>
-						</div>
-
-					</div>
-					
-					<div id="page-8" class="page eight">
-						<h2 class="heading">Web Scraping</h2>
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Job\ Scraping.jpg); 
-						float: left; width:210px;  height: 210px; margin: 5px;border: medium gray; ">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/Indeed-Job-Scraping-and-Job-Analysis">Indeed Job Scraping</a>
-								</h3>
-								<span>Selenium</span>
-							</div>
-						</div>
-
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url();
-						 display: inline-block; width:210px;   height: 210px; margin: 5px;border: medium  gray;">
-							
-						</div>
-
-					</div>
-					
-					<div id="page-9" class="page nine">
-						<h2 class="heading">Miscellaneous</h2>
-						<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/zipf.jpg); 
-						float: left; width:210px;  height: 210px; margin: 5px;border: medium  gray; ">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a
-										href="https://github.com/yogirajzala12/The-Zipf-Mystery">The-Zipf-Mystery</a>
-								</h3>
-								<span>Data Analysis</span>
-							</div>
-						</div>
-
-						<!--<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url();
-						 display: inline-block; width:210px;   height: 210px; margin: 5px;border: medium dashed gray;">
-							<div class="overlay"></div>
-							<div class="text text-center p-4">
-								<h3><a href=""></a></h3>
-								<span></span>
-							</div>
-						</div>-->
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ******************************************************* -->
-	<!-- old project section -->
-	<!-- <section class="ftco-section ftco-project" id="projects-section">
-    	<div class="container-fluid px-md-0">
-    		<div class="row no-gutters justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Our Projects</h2>
-            <p>you can review source code after clicking each of them</p>
-          </div>
-        </div>
-    		<div class="row no-gutters">
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-1.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="https://github.com/gurokeretcha/SpellChecker">Spellchecker</a></h3>
-	    					<span>NLP</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-2.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-3.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-4.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-5.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/work-6.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section> -->
-
-	<!-- section after project -->
-	<!-- <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-    	<div class="container-fluid px-md-5">
-				<div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 shadow">
-              <div class="text">
-                <strong class="number" data-number="100">0</strong>
-                <span>Awards</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 shadow">
-              <div class="text">
-                <strong class="number" data-number="1200">0</strong>
-                <span>Complete Projects</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 shadow">
-              <div class="text">
-                <strong class="number" data-number="1200">0</strong>
-                <span>Happy Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 shadow">
-              <div class="text">
-                <strong class="number" data-number="500">0</strong>
-                <span>Cups of coffee</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-	<!-- my blog section -->
+	<!-- ===== BLOG SECTION: cards linking to your blog articles ===== -->
 	<section class="ftco-section" id="blog-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-5">
+				<!-- Section heading and quote -->
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Blog</h1>
 					<h2 class="mb-4">My Blogs</h2>
-					<p>A Data Scientist is not the one who knows python, Sklearn, TensorFlow, etc. But who knows
-						how to play with the data.</p>
+					<p>A data scientist is not the one who knows Python, Scikit-learn, TensorFlow, etc., but the one who
+						knows how to play with the data.</p>
 				</div>
 			</div>
 			<div class="row d-flex">
 
+				<!-- Blog card: What Benford's Law Says (Medium). Newest post goes first.
+				     The thumbnail is a chart, so it uses "contain" to show the whole image instead of cropping it. -->
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
-						<a href="https://medium.com/p/7b1035933742"
-							class="block-20"
-							style="background-image: url('images/zipf.jpg');background-size: 450px;border: medium gray;">
+						<a href="https://medium.com/@zalayogiraj121196/what-benfords-law-says-6a26bd1388e7" class="block-20"
+							target="_blank" rel="noopener" aria-label="What Benford's Law Says"
+							style="background-image: url('images/benford_fibonacci.png'); background-size: contain; background-color: #fff; border: 1px solid #eee;">
 						</a>
 						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://medium.com/p/7b1035933742">Zipf Mystery</a>
-							</h3>
-							<div class="d-flex align-items-center mb-3 meta">
-								
-							</div>
-							<p>It is an empirical law formulated using statistics,	
-								data studied in the 
-								physical and social sciences, the rank-frequency distribution is an inverse relation
-							</p>
+							<h3 class="heading"><a href="https://medium.com/@zalayogiraj121196/what-benfords-law-says-6a26bd1388e7"
+									target="_blank" rel="noopener">What Benford's Law Says</a></h3>
+							<p>Why the digit 1 leads far more numbers than 9, and how even the Fibonacci sequence
+								follows Benford's Law almost exactly.</p>
 						</div>
 					</div>
 				</div>
-				<!--<div class="col-md-4 d-flex ftco-animate">
+
+				<!-- Blog card: Zipf Mystery (Medium). To add another post, copy this whole "col-md-4" block. -->
+				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
-						<a href="https://towardsdatascience.com/fish-weight-prediction-regression-analysis-for-beginners-part-1-8e43b0cb07e"
-							class="block-20"
-							style="background-image: url('images/blog2.png');background-size: 310px;border: medium dashed gray;">
+						<a href="https://medium.com/p/7b1035933742" class="block-20" aria-label="Zipf Mystery"
+							style="background-image: url('images/zipf.jpg');">
 						</a>
 						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://towardsdatascience.com/fish-weight-prediction-regression-analysis-for-beginners-part-1-8e43b0cb07e">Fish
-									Weight Prediction (Regression Analysis for beginners) — Part 1</a>
-							</h3>
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">December 20, 2021</span>
-								</p>
-							</div>
-							<p>How to build an ML regression model using the top linear ML algorithms (Linear
-								Regression, Lasso Regression, and Ridge Regression)</p>
+							<h3 class="heading"><a href="https://medium.com/p/7b1035933742">Zipf Mystery</a></h3>
+							<p>Zipf's law is an empirical law based on statistics: across data studied in the physical
+								and social sciences, the rank-frequency distribution is an inverse relation.</p>
 						</div>
 					</div>
-				</div> -->
-				<!--<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
-						<a href="https://medium.com/@gkeretchashvili/how-to-start-your-data-science-machine-learning-journey-2af667e96d1"
-							class="block-20"
-							style="background-image: url('images/blog3.jpeg');background-size: 290px; border: medium dashed gray;">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://medium.com/@gkeretchashvili/how-to-start-your-data-science-machine-learning-journey-2af667e96d1">How
-									to Start Your Data Science/Machine Learning Journey?</a>
-							</h3>
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">December 19, 2021</span>
-								</p>
-							</div>
-							<p>a Data Scientist is not the one who knows python, Sklearn, TensorFlow, etc. But who is
-								who knows how to play with the data.</p>
-						</div>
-					</div>
-				</div>-->
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section ftco-hireme img" style="background-image: url(images/bg_1.jpg)">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>I'm <span>Available</span> for freelancing</h2>
-					<!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-					<p class="mb-0"><a href="#contact-section" class="btn btn-primary py-3 px-5">Contact Me</a></p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+	<!-- ===== VENTURE SECTION: Analytical Agent, the SaaS product you are building ===== -->
+	<section class="ftco-section venture-section" id="venture-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<!-- Section heading -->
+				<div class="col-md-8 heading-section text-center ftco-animate">
+					<h1 class="big big-2">Venture</h1>
+					<h2 class="mb-4">What I'm Building</h2>
+					<p class="venture-tagline">Analytical Agent: your credit policy and collection strategy, backed by the numbers.</p>
+					<p>I'm building <strong>Analytical Agent</strong>, a SaaS platform for credit and collections analytics.
+						It turns what I've learned leading collections reporting into one tool that keeps every aging bucket current
+						and every recovery decision data-driven.</p>
+				</div>
+			</div>
+
+			<!-- Button to the product website -->
+			<div class="row">
+				<div class="col-md-12 text-center mt-4 ftco-animate">
+					<a href="https://www.analyticalagent.ca/" target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">Visit Analytical Agent</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===== CONTACT SECTION: contact info boxes ===== -->
+	<section class="ftco-section contact-section" id="contact-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
+				<!-- Section heading -->
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Contact</h1>
 					<h2 class="mb-4">Contact Me</h2>
-					<!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p> -->
+					<p>Have a project or a role in mind? Reach out by phone, email or LinkedIn.</p>
 				</div>
 			</div>
 
+			<!-- Contact info boxes (3 boxes x col-lg-4 = one full row) -->
 			<div class="row d-flex contact-info mb-5">
-				<!-- adress -->
-				<!-- <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box text-center p-4 shadow">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<div>
-	          		<h3 class="mb-4">Address</h3>
-		            <p>Tbilisi, Georgia</p>
-		          </div>
-	          </div>
-          </div> -->
+				<!-- Phone number box -->
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="align-self-stretch box text-center p-4 shadow">
 						<div class="icon d-flex align-items-center justify-content-center">
@@ -728,10 +446,11 @@
 						</div>
 						<div>
 							<h3 class="mb-4">Contact Number</h3>
-							<p><a href="tel:+12265074765">+1 (226) 507 4765</a></p>
+							<p><a href="tel:+12265074765">+1 (226) 507-4765</a></p>
 						</div>
 					</div>
 				</div>
+				<!-- Email box -->
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="align-self-stretch box text-center p-4 shadow">
 						<div class="icon d-flex align-items-center justify-content-center">
@@ -739,10 +458,11 @@
 						</div>
 						<div>
 							<h3 class="mb-4">Email Address</h3>
-							<p><a href="mailto: zalayogiraj121196@gmail.com">zalayogiraj121196@gmail.com</a></p>
+							<p><a href="mailto:zalayogiraj121196@gmail.com">zalayogiraj121196@gmail.com</a></p>
 						</div>
 					</div>
 				</div>
+				<!-- LinkedIn box -->
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="align-self-stretch box text-center p-4 shadow">
 						<div class="icon d-flex align-items-center justify-content-center">
@@ -750,130 +470,79 @@
 						</div>
 						<div>
 							<h3 class="mb-4">LinkedIn</h3>
-							<p><a href="https://www.linkedin.com/in/yogiraj-zala-518346226/">My LinkedIn Profile</a></p>
+							<p><a href="https://www.linkedin.com/in/yogiraj-zala-518346226/" target="_blank" rel="noopener">My LinkedIn Profile</a></p>
 						</div>
 					</div>
 				</div>
-				<!-- website -->
-				<!-- <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box text-center p-4 shadow">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<div>
-	          		<h3 class="mb-4">Website</h3>
-		            <p><a href="#">yoursite.com</a></p>
-	            </div>
-	          </div>
-          </div> -->
 			</div>
-			<!-- contact form -->
-			<!-- <div class="row no-gutters block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form" id="contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control"name="email" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control"name="subject" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7"name="message" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" submitButton>
-              </div>
-            </form>
-          
-          </div>
-
-          <div class="col-md-6 d-flex">
-          	<div class="img" style="background-image: url(images/about.jpg);"></div>
-          </div>
-        </div> -->
 		</div>
 	</section>
 
 
+	<!-- ===== FOOTER: bottom of the page ===== -->
 	<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">
+				<!-- Footer column 1: short About line + social media icons (Twitter, LinkedIn, Instagram, GitHub) -->
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">About</h2>
-						<p>I am highly motivated data enthusiast</p>
+						<p>I am a highly motivated data enthusiast.</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href='https://twitter.com/yogirajzala12'><span class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.linkedin.com/in/yogiraj-zala-518346226/"><span
-										class="icon-linkedin"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.instagram.com/yogiraj_zala/"><span class="icon-instagram"></span></a></li>
-							<li class="ftco-animate"><a href="https://github.com/yogirajzala12/"><span class="icon-github"></span></a></li>
+							<li class="ftco-animate"><a href="https://twitter.com/yogirajzala12" aria-label="Twitter" target="_blank" rel="noopener"><span class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.linkedin.com/in/yogiraj-zala-518346226/" aria-label="LinkedIn" target="_blank" rel="noopener"><span class="icon-linkedin"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.instagram.com/yogiraj_zala/" aria-label="Instagram" target="_blank" rel="noopener"><span class="icon-instagram"></span></a></li>
+							<li class="ftco-animate"><a href="https://github.com/yogirajzala12/" aria-label="GitHub" target="_blank" rel="noopener"><span class="icon-github"></span></a></li>
 						</ul>
 					</div>
 				</div>
+				<!-- Footer column 2: quick links to each section -->
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4 ml-md-4">
 						<h2 class="ftco-heading-2">Links</h2>
 						<ul class="list-unstyled">
 							<li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
 							<li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-							<li><a href="#resume-section"><span class="icon-long-arrow-right mr-2"></span>resume</a>
-							</li>
-							<li><a href="#projects-section"><span class="icon-long-arrow-right mr-2"></span>Projects</a>
-							</li>
-							<li><a href="#blog-section"><span class="icon-long-arrow-right mr-2"></span>My blogs</a>
-							</li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a>
-							</li>
-
+							<li><a href="#resume-section"><span class="icon-long-arrow-right mr-2"></span>Resume</a></li>
+							<li><a href="#blog-section"><span class="icon-long-arrow-right mr-2"></span>My Blogs</a></li>
+							<li><a href="#venture-section"><span class="icon-long-arrow-right mr-2"></span>Venture</a></li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
 						</ul>
 					</div>
 				</div>
+				<!-- Footer column 3: list of your services (all link to the Contact section) -->
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Services</h2>
 						<ul class="list-unstyled">
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data Reports</a>
-							</li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Machine Learning</a>
-							</li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data
-									Scraping</a></li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data
-									Visualization</a></li>
-							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Statistical
-									analysis</a>
-							</li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data Reports</a></li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Machine Learning</a></li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data Scraping</a></li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Data Visualization</a></li>
+							<li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Statistical Analysis</a></li>
 						</ul>
 					</div>
 				</div>
+				<!-- Footer column 4: contact details -->
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<h2 class="ftco-heading-2">Have a Question?</h2>
 						<div class="block-23 mb-4">
 							<ul>
-								<!-- <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li> -->
-								<li><a href="tel:+12265074765"><span class="icon icon-phone"></span><span
-											class="text">+1 226 5074765
-											</span></a></li>
-								<li><a href="mailto: zalayogiraj121196@gmail.com""><span class=" icon
-										icon-envelope"></span><span class="text">zalayogiraj121196@gmail.com</span></a>
-								</li>
-
+								<li><span class="icon icon-map-marker"></span><span class="text">Toronto, Canada</span></li>
+								<li><a href="tel:+12265074765"><span class="icon icon-phone"></span><span class="text">+1 (226) 507-4765</span></a></li>
+								<li><a href="mailto:zalayogiraj121196@gmail.com"><span class="icon icon-envelope"></span><span class="text">zalayogiraj121196@gmail.com</span></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-			
+			</div>
 		</div>
 	</footer>
 
 
 
-	<!-- loader -->
+	<!-- ===== LOADING SPINNER: orange circle shown while the page loads ===== -->
 	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
@@ -881,6 +550,7 @@
 		</svg></div>
 
 
+	<!-- ===== JAVASCRIPT FILES: add animations and interactivity. Keep this order (jQuery must load first) ===== -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
@@ -894,7 +564,33 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 
+	<!-- main.js = your site's own scripts (menu, scroll animations, rotating titles) -->
 	<script src="js/main.js"></script>
+
+	<!-- About section photo slider: arrows and dots switch between your photos -->
+	<script>
+		(function () {
+			var slider = document.getElementById('photo-slider');
+			if (!slider) return;
+			var slides = slider.querySelectorAll('.photo-slide');
+			var dots = slider.querySelectorAll('.photo-dots button');
+			var current = 0;
+
+			function show(i) {
+				current = (i + slides.length) % slides.length;
+				for (var k = 0; k < slides.length; k++) {
+					slides[k].classList.toggle('active', k === current);
+					if (dots[k]) dots[k].classList.toggle('active', k === current);
+				}
+			}
+
+			slider.querySelector('.photo-prev').addEventListener('click', function () { show(current - 1); });
+			slider.querySelector('.photo-next').addEventListener('click', function () { show(current + 1); });
+			for (var d = 0; d < dots.length; d++) {
+				(function (n) { dots[n].addEventListener('click', function () { show(n); }); })(d);
+			}
+		})();
+	</script>
 
 </body>
 
